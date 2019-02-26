@@ -20,4 +20,32 @@ int main(){
 	return 0;
 }
 
-// Write definition of inputMatrix(),matrixMultiply() and showMatrix() here
+void inputMatrix(double A[][N]){
+	for(int x=0;x<N;x++){
+		cout << "Row " << x+1 << ": ";
+		for(int y=0;y<N;y++){
+			cin >> A[x][y];
+		}
+	}
+}
+
+void findLocalMax(const double A[][N], bool B[][N]){
+	for(int x = 1; x < N-1; x++){
+		for(int y = 1; y < N-1; y++){
+			if(A[x][y] > A[x-1][y] && A[x][y] > A[x+1][y] && A[x][y] > A[x][y-1] && A[x][y] > A[x][y+1]){
+				B[x][y] = true;
+			}
+			else B[x][y] = false;
+		}
+	}
+}
+void showMatrix(const bool B[][N]){
+	for(int x =0 ; x < N; x++){
+		for(int y = 0 ; y < N ; y++){
+			cout << B[x][y] << " ";
+		}
+		cout << "\n";
+	}
+
+
+}
